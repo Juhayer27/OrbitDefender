@@ -1,0 +1,19 @@
+{
+  "name": "Orbit Defender — EntropicMind",
+  "short_name": "Orbit Defender",
+  "description": "Survive the waves, upgrade your weapons, and defeat cosmic bosses.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#070b18",
+  "theme_color": "#070b18",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b18">
+  <meta name="description" content="Orbit Defender — survive the waves, upgrade your weapons, and defeat cosmic bosses.">
+  <title>Orbit Defender — EntropicMind</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Orbit Defender home">
+        <span class="brand-mark">◎</span>
+        <span><strong>ORBIT</strong><small>DEFENDER</small></span>
+      </a>
+      <div class="top-actions">
+        <button id="soundBtn" class="icon-btn" aria-label="Toggle sound" title="Toggle sound">♫</button>
+        <button id="installBtn" class="install-btn" hidden>Install</button>
+      </div>
+    </header>
+
+    <section class="game-shell" aria-label="Orbit Defender game">
+      <canvas id="gameCanvas" aria-label="Space survival game"></canvas>
+
+      <div class="hud" id="hud" hidden>
+        <div class="hud-top">
+          <div class="stat"><span class="stat-label">SCORE</span><strong id="scoreValue">0</strong></div>
+          <div class="stat centered"><span class="stat-label">WAVE</span><strong id="waveValue">1</strong></div>
+          <div class="stat right"><span class="stat-label">BEST</span><strong id="bestValue">0</strong></div>
+        </div>
+        <div class="health-row">
+          <span class="health-label">HULL</span>
+          <div class="health-track"><div id="healthFill" class="health-fill"></div></div>
+          <span id="healthValue" class="health-value">100%</span>
+        </div>
+        <div class="boss-bar-wrap" id="bossBarWrap" hidden>
+          <div class="boss-caption"><span>THREAT: OVERLORD</span><span id="bossHealthText">100%</span></div>
+          <div class="boss-track"><div id="bossHealthFill" class="boss-fill"></div></div>
+        </div>
+        <div class="multiplier" id="multiplier">×1.0 COMBO</div>
+      </div>
+
+      <div class="overlay" id="startOverlay">
+        <div class="eyebrow"><span class="pulse-dot"></span> DEEP SPACE // SURVIVAL PROTOCOL</div>
+        <div class="hero-symbol" aria-hidden="true"><span>✦</span><i></i></div>
+        <h1>ORBIT<br><em>DEFENDER</em></h1>
+        <p class="intro">The orbit is under attack. Survive the waves, collect upgrades, and defend the core.</p>
+        <div class="feature-pills"><span>WEAPONS</span><span>BOSS FIGHTS</span><span>UPGRADES</span></div>
+        <button id="startBtn" class="primary-btn">START MISSION <span>↗</span></button>
+        <p class="controls-hint">DESKTOP: A / D or ← / → &nbsp;·&nbsp; MOBILE: use the controls below</p>
+      </div>
+
+      <div class="overlay pause-overlay" id="pauseOverlay" hidden>
+        <div class="eyebrow">MISSION PAUSED</div><h2>Take a breath, pilot.</h2>
+        <button id="resumeBtn" class="primary-btn">RESUME MISSION</button>
+      </div>
+
+      <div class="overlay result-overlay" id="resultOverlay" hidden>
+        <div class="eyebrow" id="resultEyebrow">MISSION ENDED</div>
+        <h2 id="resultTitle">SHIP DESTROYED</h2>
+        <p class="result-score">FINAL SCORE <strong id="finalScore">0</strong></p>
+        <p id="resultMessage" class="intro">The orbit will need you again.</p>
+        <button id="restartBtn" class="primary-btn">REDEPLOY <span>↻</span></button>
+      </div>
+
+      <div class="upgrade-overlay" id="upgradeOverlay" hidden>
+        <div class="eyebrow">SALVAGE RECOVERED</div>
+        <h2>Choose an upgrade</h2>
+        <p>Pick one system to improve before the next wave.</p>
+        <div class="upgrade-options" id="upgradeOptions"></div>
+      </div>
+
+      <button id="pauseBtn" class="pause-btn" aria-label="Pause game" hidden>Ⅱ</button>
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </section>
+
+    <section class="control-dock" id="controlDock" hidden>
+      <button class="control-btn" id="leftBtn" aria-label="Rotate left"><span>←</span><small>LEFT</small></button>
+      <div class="dock-center"><span class="dock-orbit"></span><strong>ORBITAL<br>CONTROL</strong><small>HOLD TO STEER</small></div>
+      <button class="control-btn" id="rightBtn" aria-label="Rotate right"><span>→</span><small>RIGHT</small></button>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> ENTROPICMIND</span>
+      <span class="footer-credit">Designed &amp; maintained by <strong>Md. Shah Juhayer</strong></span>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
